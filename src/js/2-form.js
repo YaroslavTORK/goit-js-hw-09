@@ -10,8 +10,7 @@ form.addEventListener("input", inputTextValue);
 form.addEventListener("submit", checkFieldSubmit);
 
 function inputTextValue(event) {
-    const messageVal = event.target.value 
-    
+
     if (event.target.name === "email" || event.target.name === "message") {
 
         formData[event.target.name] = event.target.value;
@@ -36,7 +35,10 @@ function checkFieldSubmit(event) {
     if (formData.email === "" || formData.message === "") {
         alert ("Fill please all fields")
         return
-}
+    }
+    console.log(formData);
     event.currentTarget.reset();
     localStorage.removeItem(storageKey);
+    formData.email = "";
+    formData.message = "";
 }
